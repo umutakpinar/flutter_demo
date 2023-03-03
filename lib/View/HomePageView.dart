@@ -1,6 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:flutter_demo/View/FormItemsPageView.dart';
 
+import 'FormPageView.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -16,34 +18,46 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: const Text("Flutter Demo Training App"),
       ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Padding(
-                padding: EdgeInsets.all(15),
-              child: Text(
-                "Select which what you want.",
-                textAlign: TextAlign.center,
-                textScaleFactor: 1.5,
-              ),
+      body: SingleChildScrollView(
+        child :
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Container(
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                const Text(
+                  "Select which what you want.",
+                  textAlign: TextAlign.center,
+                  textScaleFactor: 1.5,
+                ),
+                //Form Items Page
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FormItemsPage()));
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        "Form Items (RadioButton, DropDownButton, Slider, TextField etc)",
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                ),
+
+                //Form Page
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FormPage(),));
+                }, child: const Text("Form Page")),
+              ],
             ),
-            //TextButton(onPressed: (){}, child: const Text("Deneme")),
-            //IconButton(onPressed: (){}, icon: const Icon(Icons.smart_button))
-            //OutlinedButton(onPressed: (){}, child: const Text("Form Items (RadioButton,DropDownButton,TextField etc)")),
-
-            //Form Items Page
-            ElevatedButton(
-                onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FormItemsPage()));
-                },
-                child: const Text("Form Items (RadioButton,DropDownButton,TextField etc)")
-            ),
 
 
-          ],
+          ),
+
+
         ),
-      ),
+      )
     );
   }
 }
