@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_demo/View/FormItemsPageView.dart';
 
 import 'FormPageView.dart';
+import 'InstrinsicHeightPageView.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -48,7 +50,22 @@ class _HomePageState extends State<HomePage> {
                 //Form Page
                 ElevatedButton(onPressed: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FormPage(),));
-                }, child: const Text("Form Page")),
+                },
+                    child: const Text("Form Page")
+                ),
+
+              //InstrinsicHeight/IntrinsicWidth
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const InstrinsicHeightPage()));
+                    },
+                    child: const Padding(
+                        padding: EdgeInsets.all(10),
+                      child: Text(
+                          "LayoutBuilder, IntrinsicHeight & ConstrainedBox Widgets Usage Sample"
+                      ),
+                    )
+                )
               ],
             ),
 
