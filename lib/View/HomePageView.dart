@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_demo/View/ConstraintsView.dart';
+import 'package:flutter_demo/View/DataFlowDirectionView.dart';
 import 'package:flutter_demo/View/FormItemsPageView.dart';
 
 import 'FormPageView.dart';
@@ -55,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                     child: const Text("Form Page")
                 ),
 
+                //Constraints Page
                 ElevatedButton(
                     onPressed: (){
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ConstraintsPage()));
@@ -75,6 +77,12 @@ class _HomePageState extends State<HomePage> {
                     )
                 ),
 
+                //DataFlowDirectionPage
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DataFlowDirectionsPage()));
+                    },
+                    child: Text("DataFlow Direction"))
               ],
             ),
           ),
